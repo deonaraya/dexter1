@@ -33,10 +33,10 @@ public class HomePage extends BasePage<HomePage> {
 
     // xpath locator to explain custom attribute selection
     // locator explains list of webElements
-    @FindBys(@FindBy(xpath = "//ul[@id='homefeatured']//h5[@itemprop='name']/a"))
+    @FindBys(@FindBy(xpath = "//ul[@id='homefeatured']//h5[@itemprop='name']"))
     private List<WebElement> productNames ;
 
-    @FindBy(xpath = "//ul[@id='homefeatured']//div[@class='right-block']//span[@itemprop='price']")
+    @FindBy(xpath = "//ul[@id='homefeatured']//div[@class='right-block']//div[@itemprop='offers']")
     private List<WebElement> catalogPrices ;
 
     @Override
@@ -61,14 +61,14 @@ public class HomePage extends BasePage<HomePage> {
 
     public HomePage getProductNames(){
         for (WebElement name: productNames) {
-            System.out.println("Below product are listed in catalog : " + name);
+            System.out.println("Below product are listed in catalog : " + name.getText());
         }
         return new HomePage(driver);
     }
 
     public HomePage getProductPrices(){
         for (WebElement price: catalogPrices) {
-            System.out.println("Below prices are listed in catalog : " + price);
+            System.out.println("Below prices are listed in catalog : " + price.getText());
         }
         return new HomePage(driver);
     }
