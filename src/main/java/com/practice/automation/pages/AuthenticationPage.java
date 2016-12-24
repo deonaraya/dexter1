@@ -22,6 +22,21 @@ public class AuthenticationPage extends BasePage<AuthenticationPage> {
     @FindBy(xpath = "//h3[text()='Already registered?']")
     private WebElement signInHeader ;
 
+    @FindBy(id = "email_create")
+    private WebElement createEmailTextField ;
+
+    @FindBy(id = "SubmitCreate")
+    private WebElement createAccount ;
+
+    @FindBy(id = "email")
+    private WebElement emailTextField ;
+
+    @FindBy(id = "passwd")
+    private WebElement passwordTextField ;
+
+    @FindBy(id = "SubmitLogin")
+    private WebElement login ;
+
 
     @Override
     protected ExpectedCondition<?> getPageLoadCondition() {
@@ -33,6 +48,19 @@ public class AuthenticationPage extends BasePage<AuthenticationPage> {
         PageFactory.initElements(driver,page);
     }
 
+
+    public BillingAddressPage signIn(String email, String password){
+        emailTextField.sendKeys(email);
+        passwordTextField.sendKeys(password);
+        login.click();
+        return new BillingAddressPage(driver);
+    }
+
+    public SignUpPage signUp(String createEmail){
+        createEmailTextField.sendKeys(createEmail);
+        createAccount.click();
+        return new SignUpPage(driver);
+    }
 
 
 
