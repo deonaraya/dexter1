@@ -1,7 +1,9 @@
 package com.practice.automation.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
@@ -39,6 +41,7 @@ public class HomePage extends BasePage<HomePage> {
     @FindBy(xpath = "//ul[@id='homefeatured']//div[@class='right-block']//div[@itemprop='offers']")
     private List<WebElement> catalogPrices ;
 
+
     @Override
     protected ExpectedCondition<?> getPageLoadCondition() {
         return ExpectedConditions.visibilityOf(catalog);
@@ -73,7 +76,19 @@ public class HomePage extends BasePage<HomePage> {
         return new HomePage(driver);
     }
 
+
+    public AddToCartSuccessPopUp addnew(){
+
+        WebElement catItem = driver.findElement(By.xpath("(.//ul[@id='homefeatured']//div[@class='product-container'])[3]"));
+        WebElement addToCart = driver.findElement(By.xpath("(.//ul[@id='homefeatured']//a[@title='Add to cart'])[3]"));
+
+        Actions action = new Actions(driver);
+        action.moveToElement(catItem).build().perform();
+        addToCart.click();
+        return new AddToCartSuccessPopUp(driver);
+    }
     public AddToCartPage addProductToCart(String productName){
+
         for (WebElement name: productNames) {
             if (name.getText() == productName)
                 name.click();

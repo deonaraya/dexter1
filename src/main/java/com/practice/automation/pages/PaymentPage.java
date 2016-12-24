@@ -26,8 +26,6 @@ public class PaymentPage extends BasePage<PaymentPage> {
     @FindBy(className = "cheque")
     private WebElement payByCheck ;
 
-    @FindBy(xpath = "//span[text()='I confirm my order']//parent::button")
-    private WebElement confirmOrder ;
 
 
     @Override
@@ -39,16 +37,12 @@ public class PaymentPage extends BasePage<PaymentPage> {
         PageFactory.initElements(driver,page);
     }
 
-    public PaymentPage selectPaymentMode(String paymentMethod){
+    public PaymentConfirmPage selectPaymentMode(String paymentMethod){
         if (paymentMethod == "payByWire")
             payByWire.click();
         else if(paymentMethod == "payByCheck")
             payByCheck.click();
-        return new PaymentPage(driver);
+        return new PaymentConfirmPage(driver);
     }
 
-    public OrderConfirmationPage confrimOrder(){
-        confirmOrder.click();
-        return new OrderConfirmationPage(driver);
-    }
 }

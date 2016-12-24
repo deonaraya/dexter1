@@ -17,8 +17,8 @@ public class OrderConfirmationPage extends  BasePage<OrderConfirmationPage> {
         waitForElement(getPageLoadCondition());
     }
 
-    @FindBy(xpath = "//p[@class='alert alert-success']")
-    private WebElement orderConfirmMessage ;
+    @FindBy(xpath = "//h1[@class='page-heading' and text()='Order confirmation']")
+    private WebElement pageHeading ;
 
     @FindBy(xpath = "//div[@class='box order-confirmation']")
     private WebElement OrderConfrimSection ;
@@ -28,7 +28,7 @@ public class OrderConfirmationPage extends  BasePage<OrderConfirmationPage> {
 
     @Override
     protected ExpectedCondition<?> getPageLoadCondition() {
-        return ExpectedConditions.visibilityOf(orderConfirmMessage);
+        return ExpectedConditions.visibilityOf(pageHeading);
     }
 
     @Override

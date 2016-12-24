@@ -11,7 +11,9 @@ public class firstTest extends BaseTest {
 @Test
     public void test(){
     HomePage pg = new HomePage(driver);
-    pg.getProductNames().getProductPrices();
+    pg.getProductNames().getProductPrices().addnew().goToSummary()
+            .goToAuthenticate().signIn("byju@mailinator.com","Cisco@1234").goToShipping().goToPayment()
+            .selectPaymentMode("payByWire").confrimOrder().backToORder();
 
 }
 

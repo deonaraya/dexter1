@@ -35,7 +35,7 @@ public class BillingAddressPage extends BasePage<BillingAddressPage> {
     }
 
     public ShippingPage goToShipping(){
-
+        checkoutStep3.click();
         return new ShippingPage(driver);
     }
 }
