@@ -1,7 +1,7 @@
 package com.practice.automation;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 
 import java.awt.*;
@@ -15,9 +15,14 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp(){
-       driver = new FirefoxDriver();
-//        driver = new ChromeDriver();
-        driver.get("http://automationpractice.com");
+       // driver = new FirefoxDriver();
+
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("test-type");
+//        driver = new ChromeDriver(options);
+
+        driver = new ChromeDriver();
+        driver.get("http://automationpractice.com/index.php");
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         int Width = (int) toolkit.getScreenSize().getWidth();
         int Height = (int) toolkit.getScreenSize().getHeight();
