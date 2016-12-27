@@ -1,0 +1,24 @@
+selhub:  
+  image: selenium/hub
+  ports:
+    - 4444:4444
+  environment:
+    - no_proxy=localhost
+
+nodeff:  
+  image: selenium/node-firefox-debug
+  ports:
+    - 4577
+  environment:
+    - no_proxy=localhost
+  links:
+    - selhub:hub
+
+nodechrome:  
+  image: selenium/node-chrome-debug
+  ports:
+    - 4578
+  environment:
+    - no_proxy=localhost
+  links:
+    - selhub:hub
