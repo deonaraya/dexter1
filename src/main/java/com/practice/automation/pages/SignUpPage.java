@@ -94,6 +94,12 @@ public class SignUpPage extends BasePage<SignUpPage> {
         return ExpectedConditions.visibilityOf(createAccountHeader);
     }
 
+    public ShippingPage register(){
+
+
+        return new ShippingPage(driver);
+    }
+
     @Override
     protected void instantiatePage(SignUpPage page) {
         PageFactory.initElements(driver,page);
