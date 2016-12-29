@@ -1,10 +1,12 @@
 package com.practice.automation;
 
 import com.practice.automation.common.CommonHelper;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.awt.*;
 import java.io.IOException;
@@ -15,15 +17,23 @@ import java.net.MalformedURLException;
  */
 public class BaseTest {
 
- // protected WebDriver driver ;
-    public RemoteWebDriver driver;
+    protected WebDriver driver ;
+  //  public RemoteWebDriver driver;
+    @Parameters("browser")
 
-    @BeforeTest
-    public void setUp() throws MalformedURLException {
-        driver = new FirefoxDriver();
-//          driver = new ChromeDriver();
+    @BeforeClass
+    public void setUp(String browser) throws MalformedURLException {
 
-   //     Selenium Grid Settings
+        if(browser.equalsIgnoreCase("firefox"))
+            driver = new FirefoxDriver();
+         else  if(browser.equalsIgnoreCase("chrome"))
+            driver = new ChromeDriver();
+        else {
+            throw new IllegalArgumentException("Invalid browser value!!");
+        }
+
+
+//        Grid Settings
 //        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 //        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 
@@ -39,7 +49,7 @@ public class BaseTest {
         driver.manage().window().setSize(new org.openqa.selenium.Dimension(Width, Height));
     }
 
-    @AfterTest
+    @AfterClass
     public void teardown(){
         if (driver != null) {
             driver.close();

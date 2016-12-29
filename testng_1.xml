@@ -1,0 +1,12 @@
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestAll" thread-count="1" parallel="false" >
+
+    <test name = "test1">
+        <parameter name="browser" value="firefox" />
+        <classes>
+
+            <class name="com.practice.automation.SignUpTest"/>
+        </classes>
+    </test>
+</suite>

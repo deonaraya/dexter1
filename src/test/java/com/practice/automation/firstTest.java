@@ -10,6 +10,10 @@ public class firstTest extends BaseTest {
 
     @Test
     public void aTest(){
+
+        System.out.println("Test Case One in " + getClass().getSimpleName()
+                + " with Thread Id:- " + Thread.currentThread().getId());
+
     HomePage pg = new HomePage(driver);
     pg.getProductNames().getProductPrices().addnew().goToSummary()
             .goToAuthenticate().signIn("byju@mailinator.com","Cisco@1234").goToShipping().goToPayment()

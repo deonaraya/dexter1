@@ -11,6 +11,10 @@ public class SignUpTest extends BaseTest  {
 
     @Test
     public void pTest() {
+
+        System.out.println("Test Case One in " + getClass().getSimpleName()
+                + " with Thread Id:- " + Thread.currentThread().getId());
+
         HomePage pg = new HomePage(driver);
         pg.getProductNames().getProductPrices().addnew().goToSummary()
                 .goToAuthenticate().signUp(CommonHelper.getUniqueEmail("chandra")) ;
