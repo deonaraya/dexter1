@@ -3,7 +3,7 @@
 <suite name="TestAll" thread-count="1" parallel="false" >
 
     <test name = "test1">
-        <parameter name="browser" value="firefox" />
+        <parameter name="browser" value="${browser}" />
         <classes>
 
             <class name="com.practice.automation.SignUpTest"/>

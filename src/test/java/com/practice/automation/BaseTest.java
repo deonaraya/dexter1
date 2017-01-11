@@ -20,7 +20,6 @@ public class BaseTest {
     protected WebDriver driver ;
   //  public RemoteWebDriver driver;
     @Parameters("browser")
-
     @BeforeClass
     public void setUp(String browser) throws MalformedURLException {
 

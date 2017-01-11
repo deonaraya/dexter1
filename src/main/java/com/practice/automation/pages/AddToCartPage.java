@@ -1,5 +1,6 @@
 package com.practice.automation.pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * Created by chandrad on 12/24/16.
  */
 public class AddToCartPage extends BasePage<AddToCartPage> {
+
+    final static Logger LOGGER = Logger.getLogger(AddToCartPage.class);
 
     public AddToCartPage(WebDriver driver) {
         super(driver);
@@ -58,6 +61,7 @@ public class AddToCartPage extends BasePage<AddToCartPage> {
     }
 
     public AddToCartPage setQuantity(String quantity){
+        LOGGER.info("set the Quantity using the text field set");
         quantityTextField.sendKeys(quantity);
         return new AddToCartPage(driver);
     }

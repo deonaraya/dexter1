@@ -17,7 +17,7 @@ public class SignUpTest extends BaseTest  {
 
         HomePage pg = new HomePage(driver);
         pg.getProductNames().getProductPrices().addnew().goToSummary()
-                .goToAuthenticate().signUp(CommonHelper.getUniqueEmail("chandra")) ;
+                .goToAuthenticate().signUp(CommonHelper.getUniqueEmail("chandra")).register() ;
 
     }
 }

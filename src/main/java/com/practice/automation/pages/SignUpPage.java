@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by chandrad on 12/24/16.
@@ -46,6 +47,9 @@ public class SignUpPage extends BasePage<SignUpPage> {
 
     @FindBy(id = "years")
     private WebElement yearSelect ;
+
+    @FindBy(id = "newsletter")
+    private WebElement newsCheckBox ;
 
     @FindBy(id = "firstname")
     private WebElement billingFirstname ;
@@ -96,6 +100,21 @@ public class SignUpPage extends BasePage<SignUpPage> {
 
     public ShippingPage register(){
 
+        genderFemale.click();
+        genderMale.click();
+        new Select(daysSelect).selectByValue("12");
+        new Select(monthSelect).selectByValue("4");
+        new Select(yearSelect).selectByValue("2013");
+
+
+        newsCheckBox.click();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        register.click();
 
         return new ShippingPage(driver);
     }
