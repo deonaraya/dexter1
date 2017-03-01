@@ -3,10 +3,10 @@
 <suite name="TestAll" thread-count="1" parallel="false" >
 
     <test name = "test1">
-        <parameter name="browser" value="${browser}" />
+        <parameter name="browser" value="FIREFOX" />
         <classes>
-
-            <class name="com.practice.automation.SignUpTest"/>
+            <!--<class name="com.practice.automation.SignUpTest"/>-->
+            <class name="com.practice.automation.firstTest"/>
         </classes>
     </test>
 </suite>

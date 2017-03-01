@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -96,6 +98,23 @@ public class HomePage extends BasePage<HomePage> {
         }
 
         return new AddToCartPage(driver);
+    }
+
+    public void getCatalogMetaData(){
+
+        HashMap<String, String> metaMap = new HashMap();
+
+        ArrayList<String> priceMeta = new ArrayList<String>() ;
+        int i = 0;
+
+        for (WebElement price: catalogPrices) {
+          //  metaMap.put("Price",price.getText());
+            priceMeta.add(i,price.getText());
+            i++ ;
+        }
+
+
+
     }
 
 
